@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+:host {
+  --mario-red: #e4000f;
+  --mario-blue: #049cd8;
+  --mario-yellow: #fbd000;
+  --mario-green: #43b047;
+  --pixel-black: #000000;
+}
+
+.nes-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-wrap: wrap; /* Allows stacking on small screens */
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  background-color: #5c94fc;
+  font-family: 'Press Start 2P', cursive;
+  padding: 40px;
+}
+
+.mario-container {
+  background: white;
+  width: 400px;
+  padding: 25px;
+  border: 4px solid var(--pixel-black);
+  box-shadow: 8px 8px 0px rgba(0,0,0,0.2);
+}
+
+.preview-card {
+  border-color: var(--mario-green);
+  min-height: 400px;
+}
+
+.header-pixel {
+  background: var(--mario-red);
+  color: white;
+  padding: 10px;
+  text-align: center;
+  margin-bottom: 20px;
+  border: 4px solid var(--pixel-black);
+  font-size: 12px;
+}
+
+.header-pixel.green {
+  background: var(--mario-green);
+}
+
+.stats-screen {
+  background: #000;
+  color: #fff;
+  padding: 15px;
+  border: 4px solid #555;
+  font-size: 10px;
+  line-height: 1.8;
+}
+
+.data-text {
+  color: var(--mario-yellow);
+}
+
+.pixel-group { margin-bottom: 20px; }
+.pixel-group label { display: block; font-size: 8px; margin-bottom: 8px; }
+
+.pixel-input {
+  width: 100%;
+  padding: 10px;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 10px;
+  border: 4px solid var(--pixel-black);
+  outline: none;
+}
+
+.radio-row { display: flex; gap: 15px; margin-top: 5px; }
+.pixel-radio { display: flex; align-items: center; cursor: pointer; font-size: 8px; gap: 8px; }
+.pixel-radio input { display: none; }
+.pixel-check { width: 14px; height: 14px; border: 3px solid var(--pixel-black); display: inline-block; }
+.pixel-radio input:checked + .pixel-check { background: var(--mario-red); }
+
+.pixel-btn {
+  width: 100%;
+  padding: 15px;
+  background: var(--mario-yellow);
+  font-family: 'Press Start 2P', cursive;
+  border: 4px solid var(--pixel-black);
+  box-shadow: 4px 4px 0px var(--pixel-black);
+  cursor: pointer;
+}
+
+.pixel-btn:disabled { background: #999; cursor: not-allowed; box-shadow: none; }
+
+.success-msg {
+  margin-top: 20px;
+  text-align: center;
+  color: var(--mario-red);
+  animation: blink 0.5s infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}

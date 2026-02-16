@@ -1,0 +1,67 @@
+<div class="nes-wrapper">
+
+  <div class="mario-container">
+    <div class="header-pixel">LEVEL 1-1: INPUT DATA</div>
+
+    <form (ngSubmit)="onSubmit()" #myForm="ngForm">
+      <div class="pixel-group">
+        <label>PLAYER NAME</label>
+        <input class="pixel-input" type="text" name="username" [(ngModel)]="username" placeholder="NAME..." required>
+      </div>
+
+      <div class="pixel-group">
+        <label>COIN ADDR (EMAIL)</label>
+        <input class="pixel-input" type="email" name="email" [(ngModel)]="email" placeholder="EMAIL..." required email>
+      </div>
+
+      <div class="pixel-group">
+        <label>CHARACTER CLASS</label>
+        <div class="radio-row">
+          <label class="pixel-radio">
+            <input type="radio" name="gender" [(ngModel)]="gender" value="male" required>
+            <span class="pixel-check"></span> MALE
+          </label>
+          <label class="pixel-radio">
+            <input type="radio" name="gender" [(ngModel)]="gender" value="female">
+            <span class="pixel-check"></span> FEMALE
+          </label>
+        </div>
+      </div>
+
+      <div class="pixel-group">
+        <label>POWER-UP STATUS</label>
+        <select class="pixel-input" name="status" [(ngModel)]="status" required>
+          <option value="" disabled selected>SELECT...</option>
+          <option value="permanent">PERMANENT</option>
+          <option value="probationary">PROBATION</option>
+        </select>
+      </div>
+
+      <div class="pixel-group">
+        <label>MISSION NOTES</label>
+        <textarea class="pixel-input" name="comments" [(ngModel)]="comments" rows="2" placeholder="NOTES..."></textarea>
+      </div>
+
+      <button class="pixel-btn" type="submit" [disabled]="!myForm.valid">START GAME</button>
+    </form>
+  </div>
+
+  <div class="mario-container preview-card">
+    <div class="header-pixel green">PLAYER STATS</div>
+
+    <div class="stats-screen">
+      <p>NAME: <span class="data-text">{{ username || '???' }}</span></p>
+      <p>ADDR: <span class="data-text">{{ email || '???' }}</span></p>
+      <p>CLASS: <span class="data-text">{{ gender | uppercase }}</span></p>
+      <p>STATUS: <span class="data-text">{{ status | uppercase }}</span></p>
+      <p class="notes-preview">NOTES: <br>
+        <span class="data-text">{{ comments }}</span>
+      </p>
+    </div>
+
+    <div *ngIf="submitted" class="success-msg">
+      <p>QUEST STARTED!</p>
+    </div>
+  </div>
+
+</div>
