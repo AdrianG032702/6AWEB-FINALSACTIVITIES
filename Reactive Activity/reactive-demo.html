@@ -1,0 +1,61 @@
+<div class="nes-wrapper">
+
+  <div class="mario-container">
+    <div class="header-pixel">WORLD 1-2: REACTIVE</div>
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="pixel-group">
+        <label>PLAYER NAME</label>
+        <input class="pixel-input" formControlName="username" placeholder="NAME...">
+        <small class="error-msg" *ngIf="isInvalid('username')">* REQUIRES AT LEAST 4 CHARS</small>
+      </div>
+
+      <div class="pixel-group">
+        <label>COIN ADDR (EMAIL)</label>
+        <input class="pixel-input" formControlName="email" placeholder="EMAIL...">
+        <small class="error-msg" *ngIf="isInvalid('email')">* INVALID EMAIL ADDRESS</small>
+      </div>
+
+      <div class="pixel-group">
+        <label>CLASS</label>
+        <div class="radio-row">
+          <label class="pixel-radio">
+            <input type="radio" formControlName="gender" value="male">
+            <span class="pixel-check"></span> MALE
+          </label>
+          <label class="pixel-radio">
+            <input type="radio" formControlName="gender" value="female">
+            <span class="pixel-check"></span> FEMALE
+          </label>
+        </div>
+      </div>
+
+      <div class="pixel-group">
+        <label>STATUS</label>
+        <select class="pixel-input" formControlName="status">
+          <option value="" disabled selected>SELECT...</option>
+          <option value="permanent">PERMANENT</option>
+          <option value="probationary">PROBATION</option>
+        </select>
+      </div>
+
+      <button class="pixel-btn" type="submit" [disabled]="form.invalid">
+        START MISSION
+      </button>
+    </form>
+  </div>
+
+  <div class="mario-container preview-card">
+    <div class="header-pixel green">LIVE PREVIEW</div>
+
+    <div class="stats-screen">
+      <p>NAME: <span class="data-text">{{ form.get('username')?.value || '???' }}</span></p>
+      <p>ADDR: <span class="data-text">{{ form.get('email')?.value || '???' }}</span></p>
+      <p>CLASS: <span class="data-text">{{ form.get('gender')?.value | uppercase }}</span></p>
+      <p>STATUS: <span class="data-text">{{ form.get('status')?.value | uppercase }}</span></p>
+    </div>
+
+    <div *ngIf="submitted" class="success-msg">MISSION INITIALIZED!</div>
+  </div>
+
+</div>

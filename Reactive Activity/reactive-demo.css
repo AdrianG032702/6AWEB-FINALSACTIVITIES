@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+.nes-wrapper {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  background-color: #5c94fc;
+  font-family: 'Press Start 2P', cursive;
+}
+
+.mario-container {
+  background: white;
+  width: 380px;
+  padding: 25px;
+  border: 4px solid #000;
+  box-shadow: 8px 8px 0px rgba(0,0,0,0.2);
+}
+
+.header-pixel {
+  background: #e4000f;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  margin-bottom: 20px;
+  border: 4px solid #000;
+  font-size: 10px;
+}
+
+.header-pixel.green { background: #43b047; }
+
+.pixel-group { margin-bottom: 20px; position: relative; }
+
+.pixel-input {
+  width: 100%;
+  padding: 10px;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 10px;
+  border: 4px solid #000;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+.error-msg {
+  color: #e4000f;
+  font-size: 8px;
+  display: block;
+  margin-top: 5px;
+  animation: blink 0.3s infinite;
+}
+
+.pixel-btn {
+  width: 100%;
+  padding: 15px;
+  background: #fbd000;
+  border: 4px solid #000;
+  font-family: 'Press Start 2P', cursive;
+  cursor: pointer;
+  box-shadow: 4px 4px 0px #000;
+}
+
+.pixel-btn:disabled {
+  background: #999;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.stats-screen {
+  background: #000;
+  color: #fff;
+  padding: 15px;
+  font-size: 9px;
+  line-height: 1.8;
+  border: 4px solid #555;
+}
+
+.data-text { color: #fbd000; }
+
+@keyframes blink { 50% { opacity: 0.7; } }
