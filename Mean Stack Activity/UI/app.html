@@ -1,0 +1,46 @@
+<div class="library-container">
+  <div class="content-wrapper">
+    <h2>Holy Angel Archives</h2>
+
+    <form [formGroup]="bookForm" class="form-card">
+      <input formControlName="title" placeholder="Volume Title">
+      <input formControlName="author" placeholder="Author Name">
+      <input formControlName="genre" placeholder="Literary Genre">
+      <input formControlName="price" type="number" placeholder="Acquisition Price ($)">
+      <input formControlName="desc" class="full-width" placeholder="Brief Archive Description">
+
+      <button type="button" class="btn-submit" (click)="submitBook()">
+        {{ isEditMode ? '🖋️ Update Volume' : '📚 Register to Collection' }}
+      </button>
+
+      <button type="button" *ngIf="isEditMode" class="btn-cancel" (click)="resetForm()">
+        Cancel Edit
+      </button>
+    </form>
+
+    <div class="book-grid">
+      @for (book of books; track book.id) {
+        <div class="book-item">
+          <h3>{{ book.title }}</h3>
+          <p>"{{ book.desc }}"</p>
+
+          <div class="meta-info">
+            <strong>Author:</strong> {{ book.author }} <br>
+            <strong>Genre:</strong> {{ book.genre }}
+          </div>
+
+          <div class="price-tag">${{ book.price }}</div>
+
+          <div class="card-actions">
+            <button class="btn-edit" (click)="editBook(book)">Edit Entry</button>
+            <button class="btn-delete" (click)="deleteBook(book.id)">Remove</button>
+          </div>
+        </div>
+      } @empty {
+        <p style="text-align: center; width: 100%; color: #888; font-style: italic;">
+          The library archives are currently empty.
+        </p>
+      }
+    </div>
+  </div>
+</div>
